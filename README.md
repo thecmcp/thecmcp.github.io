@@ -1,2 +1,2 @@
 # thecmcp.github.io
-the Carnegie Mellon College Progressive's publuc facing website
+the Carnegie Mellon College Progressive's public facing website
