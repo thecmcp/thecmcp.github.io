@@ -172,3 +172,27 @@ hr.content-divider {
     border-top: 2px dashed gray;
     margin: 1rem 0;
 }
+
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    z-index: 1000;
+
+    font-size: 4rem;
+    color: rgba(201, 60, 60);
+
+    animation: spin 6s linear infinite;
+    transition: all 1s ease;
+}
+
+@keyframes spin {
+    0% {
+        transform: translateX(-50%) rotateY(0deg);
+    }
+    100% {
+        transform: translateX(-50%) rotateY(360deg);
+    }
+}
