@@ -1,0 +1,73 @@
+/* inspired by Roko C. Buljan on Stack Overflow */
+
+.system {
+    --rotation-angle: 20deg;
+    --overall-size: 80;
+    
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    height: 180px;
+    aspect-ratio: 1;
+    rotate: var(--rotation-angle);
+    margin: auto;
+
+}
+
+.planet,
+.orbit,
+.moon {
+    position: absolute;
+    transform-style: preserve-3d;
+    inset: 0;
+    height: calc(var(--size) * 1%);
+    margin: auto;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.planet {
+    /* --size: 50;
+    background: #0bf; */
+    rotate: calc(-1 * var(--rotation-angle));
+    height: calc(var(--size) * 1%);
+}
+
+.planet img {
+    height: 100%;
+    width: 100%;
+    /* object-fit: cover; */
+}
+
+.orbit {
+    --size: calc(2 * var(--overall-size));
+    --duration: 6s;
+    /* box-shadow: 0 0 0 2cqmin #5554, inset 0 0 0 2cqmin #5554; */
+    animation: orbit calc(var(--duration)) linear infinite;
+    rotate: 1 0 0 80deg;
+    translate: -40px 0 0;
+}
+
+.moon {
+    --size: calc(var(--overall-size) / 4);
+    height: calc(var(--size) * 1%);
+    margin-left: calc(var(--size) * -0.5%);
+    animation: moon calc(var(--duration)) linear infinite;
+    rotate: 1 0 0 90deg;
+}
+
+.moon h4 {
+    font-family: Impact, sans-serif;
+    font-size: 2em;
+    text-transform: uppercase;
+    color: rgb(201, 60, 60);
+
+    scale: 1 -1;
+    rotate: 0 1 0 90deg;
+}
+
+
+@keyframes orbit {
+    to {
+        transform: rotate3d(0, 0, 1, 360deg);
+    }
+}
