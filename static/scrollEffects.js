@@ -1,4 +1,9 @@
 function toggleNavBar() {
+
+    if (window.innerWidth <= 768) {
+        return;
+    }
+
     let orbitingLogo = document.getElementById('orbiting-logo');
     let navSide = document.getElementById('nav-side');
     let scrollDown = document.getElementById('scroll-down');
@@ -20,4 +25,5 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
     });
 });
+
 window.addEventListener('scroll', toggleNavBar);
