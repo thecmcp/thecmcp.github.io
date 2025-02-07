@@ -73,6 +73,7 @@ html, body {
     display: flex;
     flex-direction: column;
     padding-bottom: 4rem; /* Space for bottom nav */
+    overflow-x: hidden;
 }
 
 .home {
