@@ -98,6 +98,17 @@ function clearEventFlyers() {
 }
 
 /**
+ * deselects all elements with the given selector
+ * 
+ * @param {String} selector
+ */
+function deselectAll(selector) {
+    document.querySelectorAll(selector).forEach(element => {
+        element.classList.remove('selected');
+    });
+}
+
+/**
  * dynamically sets the right margin of the last flyer in the events-flyers container
  * 
  * @todo doesn't work, approximating with css rn
@@ -118,6 +129,7 @@ function updateLastFlyerMargin() {
 
 let months_visited = []; // strings of the form 'MM-YYYY'
 let events_flyers_locked = false;
+let selected_date;
 
 /**
  * sets up the calendar
@@ -242,13 +254,25 @@ function calendarSetup() {
                 });
             });
             dayCell.addEventListener('click', () => {
-                events_flyers_locked = !events_flyers_locked;
-
-                if (events_flyers_locked) {
+                if (events_flyers_locked && selected_date != date_str) {
+                    selected_date = date_str;
+                    deselectAll('.calendar-cell');
+                    clearEventFlyers();
+                    combined_events_obj[date_str].forEach(event => {
+                        addEventFlyer(event);
+                    });
                     dayCell.classList.add('selected');
                 } else {
-                    dayCell.classList.remove('selected');
+                    events_flyers_locked = !events_flyers_locked;
+                    selected_date = date_str;
+    
+                    if (events_flyers_locked) {
+                        dayCell.classList.add('selected');
+                    } else {
+                        dayCell.classList.remove('selected');
+                    }
                 }
+
             });
             dayCell.addEventListener('mouseout', () => {
                 if (!events_flyers_locked) {
