@@ -296,6 +296,7 @@ hr.content-divider {
     object-fit: contain; /* Maintains aspect ratio */
     height: 100%;
     margin-right: 1rem;
+    z-index: 10;
 }
 
 .event-flyer:last-child {
