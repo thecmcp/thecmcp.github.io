@@ -146,3 +146,56 @@ hr.content-divider {
         transform: translateX(-50%) rotateY(360deg);
     }
 }
+
+
+/** Calendar **/
+
+.calendar {
+    width: 90%;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.calendar-header button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.calendar-body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+}
+
+.calendar-day {
+    font-weight: bold;
+    text-align: center;
+}
+
+.calendar-cell {
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.calendar-cell.current-day {
+    background-color: rgba(201, 60, 60, 0.5);
+    color: #fff;
+}
+
+.calendar-cell.empty {
+    background-color: #f0f0f0;
+}
