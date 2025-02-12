@@ -24,6 +24,5 @@ document.addEventListener('DOMContentLoaded', () => {
     scrollDown.addEventListener('click', () => {
         document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
     });
+    window.addEventListener('scroll', toggleNavBar);
 });
-
-window.addEventListener('scroll', toggleNavBar);
