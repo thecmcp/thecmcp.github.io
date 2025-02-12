@@ -1,3 +1,17 @@
+/**
+ * Concatenates two objects and all of their values
+ * 
+ * @param {Object} object1
+ * @param {Object} object2
+ * @returns {Object} A new object with all the values of object1 and object2
+ * 
+ * @example
+ * let obj1 = {1: ['a'], 2: ['b']};
+ * let obj2 = {2: ['c', 'd'], 3: ['e']};
+ * 
+ * let concat = concatEvents(obj1, obj2);
+ * assert(concat == {1: ['a'], 2: ['b', 'c', 'd'], 3: ['e']});
+ */
 function concatEvents(object1, object2) {
 
     // not sure if these copies are necessary...
@@ -11,6 +25,30 @@ function concatEvents(object1, object2) {
         }
     }
     return return_obj;
+}
+
+/**
+ * checks if date1 is before date2
+ * 
+ * @param {String} date1 in the format 'MM-DD-YYYY'
+ * @param {String} date2 in the format 'MM-DD-YYYY'
+ * @returns {Boolean} true if date1 is before date2, false otherwise
+ */
+function dateBefore(date1, date2) {
+
+    if (!date1 || !date2) {
+        return false;
+    }
+    let date1_split = date1.split('-');
+    let date2_split = date2.split('-');
+    for (let i = 0; i < date1_split.length; i++) {
+        if (parseInt(date1_split[i]) < parseInt(date2_split[i])) {
+            return true;
+        } else if (parseInt(date1_split[i]) > parseInt(date2_split[i])) {
+            return false;
+        }
+    }
+    return false;
 }
 
 function test_concatEvents() {
@@ -35,6 +73,11 @@ function test_concatEvents() {
     console.log(concat);
 }
 
+/**
+ * adds the flyers associated with an event to the page
+ * 
+ * @param {Object} event
+ */
 function addEventFlyer(event) {
     console.log(event);
     const eventFlyer = document.createElement('img');
@@ -46,12 +89,19 @@ function addEventFlyer(event) {
     eventFlyerContainer.appendChild(eventFlyer);
 }
 
+/**
+ * clears all the event flyers from the page
+ */
 function clearEventFlyers() {
     const eventFlyerContainer = document.getElementById('events-flyers');
     eventFlyerContainer.innerHTML = '';
 }
 
-// TODO: doesn't work, approximating with css rn
+/**
+ * dynamically sets the right margin of the last flyer in the events-flyers container
+ * 
+ * @todo doesn't work, approximating with css rn
+ */
 function updateLastFlyerMargin() {
     const flyersContainer = document.querySelector('.events-flyers');
     const flyers = flyersContainer.querySelectorAll('.event-flyer');
@@ -68,6 +118,10 @@ function updateLastFlyerMargin() {
 
 let months_visited = []; // strings of the form 'MM-YYYY'
 let events_flyers_locked = false;
+
+/**
+ * sets up the calendar
+ */
 function calendarSetup() {
     const calendar = document.querySelector('.calendar');
     const currentDate = new Date();
@@ -141,7 +195,8 @@ function calendarSetup() {
                     eventContainerElement.appendChild(eventElement);
 
                     if (months_visited.indexOf(month_str) == -1 &&
-                        event['recurrence_period'] != 'None') {
+                        event['recurrence_period'] != 'None' &&
+                        dateBefore(date_str, event['recurrence_end_date'])) {
                         
                         let recurrance_period_map = {
                             'Daily': 1,
