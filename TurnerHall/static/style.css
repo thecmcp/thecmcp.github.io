@@ -1,0 +1,11 @@
+.issues-list {
+    height: 15rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.issues-list img {
+    height: 100%;
+    border: 1px solid #ccc;
+}
