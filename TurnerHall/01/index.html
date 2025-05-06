@@ -15,6 +15,14 @@
 
     <!-- Script -->
     <script type="text/javascript" src="/static/nav.js"></script>
+    <script>
+
+        document.addEventListener('navbarLoaded', function () {
+            console.log("Page loaded");
+            $('#nav-top').css('display', 'none');
+            $('#nav-side').css('transform', 'translateX(0%)');
+        });
+    </script>
 </head>
 
 <body>
