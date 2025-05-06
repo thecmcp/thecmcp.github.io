@@ -3,9 +3,17 @@
     display: flex;
     flex-direction: row;
     justify-content: left;
+    /* align-items: center; */
 }
 
 .issues-list img {
     height: 100%;
+    border: 1px solid #ccc;
+    transition: transform 0.3s ease, border 0.3s ease;
+    transform-origin: center;
+}
+
+.issues-list img:hover {
+    transform: scale(1.1);
     border: 1px solid #ccc;
 }
