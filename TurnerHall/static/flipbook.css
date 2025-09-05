@@ -17,6 +17,40 @@
 }
 
 /* GENERAL */
+
+/* Force landscape mode on mobile devices */
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+    body::before {
+        content: "Please rotate your device to landscape mode to view this site.";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #222;
+        color: #fff;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        text-align: center;
+        padding: 2rem;
+        box-sizing: border-box;
+    }
+    #flip_book,
+    .container,
+    main,
+    header,
+    footer,
+    .content,
+    .calendar,
+    .calendar-container,
+    .events-flyers {
+        display: none !important;
+    }
+}
+
 body {
     width: 100%;
     height: 100dvh;
@@ -98,6 +132,12 @@ input {
     transform: translateY(-50%);
 }
 
+@media (max-width: 768px) {
+    .container {
+        height: 90%;
+    }
+}
+
 #flip_book {
     height: 90%;
     aspect-ratio: 612/792;
@@ -150,8 +190,11 @@ input {
     transform-origin: left;
     transform-style: preserve-3d;
     transform: rotateY(0deg);
-    transition-duration: 1s;
 
+    transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition-duration: 1s;
+    
+    z-index: 1;
     border: 1px solid rgb(25, 25, 25, 0.25);
 }
 
@@ -307,7 +350,7 @@ input {
 }
 
 #back_cover {
-    z-index: 2;
+    z-index: 3;
 }
 
 #front_checkbox:checked~.container #flip_book {
@@ -318,112 +361,129 @@ input {
     transform: rotateY(-180deg);
     transition: transform 1.5s, z-index 0.5s 0.5s;
     z-index: 1;
-
-    /* width: 80%;
-    height: 80%;
-    position: absolute; */
 }
 
 #page2_checkbox:checked~.container #flip_book #page2 {
     transform: rotateY(-180deg);
-    z-index: 4;
+    transition: transform 1.5s, z-index 0.5s 0.5s;
+    z-index: 2;
 }
 
 #page3_checkbox:checked~.container #flip_book #page3 {
     transform: rotateY(-180deg);
-    z-index: 5;
+    transition: transform 1.5s, z-index 0.5s 0.5s;
+    z-index: 3;
 }
 
 #page4_checkbox:checked~.container #flip_book #page4 {
     transform: rotateY(-180deg);
-    z-index: 6;
+    transition: transform 1.5s, z-index 0.5s 0.5s;
+    z-index: 4;
 }
 
 #page5_checkbox:checked~.container #flip_book #page5 {
     transform: rotateY(-180deg);
-    z-index: 7;
+    transition: transform 1.5s, z-index 0.5s 0.5s;
+    z-index: 5;
 }
 
 #page6_checkbox:checked~.container #flip_book #page6 {
     transform: rotateY(-180deg);
-    z-index: 8;
+    transition: transform 1.5s, z-index 0.5s 0.5s;
+    z-index: 6;
 }
 
 #page7_checkbox:checked~.container #flip_book #page7 {
     transform: rotateY(-180deg);
-    z-index: 9;
+    transition: transform 1.5s, z-index 0.5s 0.5s;
+    z-index: 7;
 }
 
 #page8_checkbox:checked~.container #flip_book #page8 {
     transform: rotateY(-180deg);
-    z-index: 10;
+    transition: transform 1.5s, z-index 0.5s 0.5s;
+    z-index: 8;
 }
 
 #page9_checkbox:checked~.container #flip_book #page9 {
     transform: rotateY(-180deg);
-    z-index: 11;
+    transition: transform 1.5s, z-index 0.5s 0.5s;
+    z-index: 9;
 }
 
 #page10_checkbox:checked~.container #flip_book #page10 {
     transform: rotateY(-180deg);
-    z-index: 12;
+    transition: transform 1.5s, z-index 0.5s 0.5s;
+    z-index: 10;
 }
 
 #page11_checkbox:checked~.container #flip_book #page11 {
     transform: rotateY(-180deg);
-    z-index: 13;
+    transition: transform 1.5s, z-index 0.5s 0.5s;
+    z-index: 11;
 }
 
 #page12_checkbox:checked~.container #flip_book #page12 {
     transform: rotateY(-180deg);
+    transition: transform 1.5s, z-index 0.5s 0.5s;
     z-index: 14;
 }
 
 #page13_checkbox:checked~.container #flip_book #page13 {
     transform: rotateY(-180deg);
+    /* transition: transform 1.5s, z-index 0.5s 0.5s; */
     z-index: 15;
 }
 
 #page14_checkbox:checked~.container #flip_book #page14 {
     transform: rotateY(-180deg);
+    /* transition: transform 1.5s, z-index 0.5s 0.5s; */
     z-index: 16;
 }
 
 #page15_checkbox:checked~.container #flip_book #page15 {
     transform: rotateY(-180deg);
+    /* transition: transform 1.5s, z-index 0.5s 0.5s; */
     z-index: 17;
 }
 
 #page16_checkbox:checked~.container #flip_book #page16 {
     transform: rotateY(-180deg);
+    /* transition: transform 1.5s, z-index 0.5s 0.5s; */
     z-index: 18;
 }
 
 #page17_checkbox:checked~.container #flip_book #page17 {
     transform: rotateY(-180deg);
+    /* transition: transform 1.5s, z-index 0.5s 0.5s; */
     z-index: 19;
 }
 
 #page18_checkbox:checked~.container #flip_book #page18 {
     transform: rotateY(-180deg);
+    /* transition: transform 1.5s, z-index 0.5s 0.5s; */
     z-index: 20;
 }
 
 #page19_checkbox:checked~.container #flip_book #page19 {
     transform: rotateY(-180deg);
+    /* transition: transform 1.5s, z-index 0.0s -1.5s; */
     z-index: 21;
 }
 
 #page20_checkbox:checked~.container #flip_book #page20 {
     transform: rotateY(-180deg);
+    /* transition: transform 1.5s, z-index 0.0s -1.5s; */
     z-index: 22;
 }
 
 #back_checkbox:checked~.container #flip_book #back_cover {
     transform: rotateY(-180deg);
+    /* transition: transform 1.5s, z-index 0.0s -1.5s; */
     z-index: 23;
 }
 
 #back_checkbox:checked~.container #flip_book {
     transform: translateX(100%);
+    /* transition: transform 1.5s, z-index 0.5s 0.5s; */
 }
