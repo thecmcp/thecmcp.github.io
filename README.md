@@ -17,5 +17,5 @@ When you finish a project from the TODO list, please move it to the `✅ Done` s
 - Build SILS page (or link to sils national)
 
 ## ✅ Done
-@yon - add js event listener to page turns for rotation so animation does not occur all at once
+@yon - add js event listener to page turns for rotation so animation does not occur all at once \
 @yon - Build Turner Hall Page
