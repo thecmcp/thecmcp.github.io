@@ -2,9 +2,9 @@
 the Carnegie Mellon College Progressive's public facing website
 
 # Notes for Devs
-Please see the TODO list below to pick up a project. 
-Please **do not** push streight to `main`! You should instead make a branch for your project and when ready PR it into staging. We can then test it before PRing into main. 
-If you find a bug or want a feature, you should add it to the TODO list.
+Please see the TODO list below to pick up a project. \
+Please **do not** push streight to `main`! You should instead make a branch for your project and when ready PR it into staging. We can then test it before PRing into main. \
+If you find a bug or want a feature, you should add it to the TODO list. \
 When you finish a project from the TODO list, please move it to the `Done` section and sign it, so we can keep track of changes. You might also note the PR / commit tag.
 
 # TODO
