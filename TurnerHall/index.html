@@ -43,7 +43,7 @@
             <div class="content-item-content">
                 <h1>Issues</h1>
                 <div class="issues-list">
-                    <a href="01"><img class="issue" src="/TurnerHall/assets/issue1.png" alt="Issue 1"></a>
+                    <a id="issue-link"><img class="issue" src="/TurnerHall/assets/issue1.png" alt="Issue 1"></a>
                 </div>
             </div>
         </div>
@@ -52,11 +52,24 @@
             <div class="footer-content content-item-content">
                 <p>this website is built and maintained by the members of the CMCP and hosted on github</p>
                 <p>all source code is open source and available <a href="github.com/thecmcp/thecmcp.github.io">here</a></p>
-                <p>the booklet preview code is based on fchavonet's <a href="https://github.com/fchavonet/web-flip_book">web flipbook</a></p>
+                <p>the booklet preview code is based on fchavonet's <a href="https://github.com/fchavonet/web-flipbook">web flipbook</a></p>
                 <p>generative AI was used in the development of this website for medial automation of code writing</p>
                 <br><br>
             </div>
         </div>
     </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        const issueLink = document.getElementById('issue-link');
+        if (issueLink) {
+            if (isMobile) {
+                issueLink.href = '01/thr.pdf';
+            } else {
+                issueLink.href = '01';
+            }
+        }
+    });
+    </script>
 </body>
 </html>
