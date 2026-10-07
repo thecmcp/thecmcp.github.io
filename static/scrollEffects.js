@@ -19,10 +19,25 @@ function toggleOrbitingLogo() {
 
     let orbitingLogo = document.getElementById('orbiting-logo');
     if (window.scrollY > 100) {
+        positionOrbitingLogo();
         orbitingLogo.classList.add('shrink');
     } else {
         orbitingLogo.classList.remove('shrink');
     }
+}
+
+// Places the shrunk logo midway between the side nav's top and bottom items
+function positionOrbitingLogo() {
+    let topItems = document.querySelector('.nav-side .top-items');
+    let bottomItems = document.querySelector('.nav-side .bottom-items');
+    if (!topItems || !bottomItems) {
+        return;
+    }
+
+    let gapTop = topItems.getBoundingClientRect().bottom;
+    let gapBottom = bottomItems.getBoundingClientRect().top;
+    let orbitingLogo = document.getElementById('orbiting-logo');
+    orbitingLogo.style.setProperty('--orbit-shrink-top', `${(gapTop + gapBottom) / 2}px`);
 }
 
 function toggleScrollDown() {
@@ -46,5 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', toggleScrollDown);
     if (document.body.classList.contains('home')) {
         window.addEventListener('scroll', toggleOrbitingLogo);
+        window.addEventListener('resize', positionOrbitingLogo);
     }
 });

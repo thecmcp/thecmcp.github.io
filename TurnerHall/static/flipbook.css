@@ -81,13 +81,32 @@ input {
     width: 100%;
     height: calc(100% - 90px);
     display: flex;
-    justify-content: center;
     align-items: center;
 
     position: absolute;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    container-type: size;
+}
+
+/* Spacers that center the book when it fits and shrink away when it overflows,
+   so the left edge is never cut off */
+.container::before,
+.container::after {
+    content: '';
+    flex: 1 0 0;
+}
+
+/* Keep the book out from under the fixed side nav */
+@media (min-width: 769px) {
+    .container {
+        left: var(--nav-side-width);
+        width: calc(100% - var(--nav-side-width));
+    }
 }
 
 @media (max-width: 768px) {
@@ -102,6 +121,11 @@ input {
     position: relative;
     transition-duration: 1s;
     perspective: 2000px;
+
+    /* Half a page of room on each side so the open spread can be scrolled to,
+       plus a little padding */
+    flex-shrink: 0;
+    margin-inline: calc(90cqh * 306 / 792 + 1rem);
 }
 
 .front_cover,
@@ -133,6 +157,11 @@ input {
 
     z-index: 1;
     border: 1px solid rgb(25, 25, 25, 0.25);
+}
+
+/* Pages far from the open spread; see renderNearbyPages() in flipbook.js */
+.page.far {
+    display: none;
 }
 
 .page * img {
