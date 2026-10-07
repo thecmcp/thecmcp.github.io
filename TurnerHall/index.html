@@ -26,6 +26,7 @@
         </div>
         <div class="about content-item" id="about">
             <div class="about-content content-item-content">
+                <br>
                 <h1>The Historic Home of the Pittsburgh Left Returns in Print!</h1>
                 <p>
                     At the corner of Canal and Cherry Streets once stood a hall of red brick and open purpose. It belonged to the Allegheny Turners — a German-American society committed to bodily discipline, mutual education, and political courage. Here, language moved across tongues, from German to English to Yiddish. Here, workers trained not only their bodies but their convictions. In 1883, that hall became the birthplace of the Pittsburgh Manifesto, a document forged by anarchists, socialists, and syndicalists whose vision of liberation stretched far beyond their moment. They imagined a society without exploitation, without the machinery of state violence. They spoke in terms both material and moral: a world rebuilt by the many, not ruled by the few.
@@ -51,8 +52,7 @@
         <div class="footer content-item" id="footer">
             <div class="footer-content content-item-content">
                 <p>this website is built and maintained by the members of the CMCP and hosted on github</p>
-                <p>all source code is open source and available <a href="github.com/thecmcp/thecmcp.github.io">here</a></p>
-                <p>our booklet code is open sourced! check it out <a href="https://github.com/fchavonet/web-flipbook">here</a></p>
+                <p>all source code is open source and available <a href="https://github.com/thecmcp/thecmcp.github.io">here</a></p>
                 <p>generative AI was used in the development of this website for medial automation of code writing</p>
                 <br><br>
             </div>
@@ -60,15 +60,8 @@
     </div>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const isMobile = window.matchMedia('(max-width: 768px)').matches;
         const issueLink = document.getElementById('issue-link');
-        if (issueLink) {
-            if (isMobile) {
-                issueLink.href = '01/thr.pdf';
-            } else {
-                issueLink.href = '01';
-            }
-        }
+        issueLink.href = '01/';
     });
     </script>
 </body>

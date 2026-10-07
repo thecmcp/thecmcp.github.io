@@ -17,6 +17,8 @@ html, body {
     z-index: 10010;
     width: 390px;
     left: 0px;
+    right: 0;
+    width: 100%;
     bottom: 0px;
     margin-top: 0px;
 
@@ -70,6 +72,7 @@ html, body {
 
 /* Adjust content for mobile */
 .content {
+    width: 100%;
     display: flex;
     flex-direction: column;
     padding-bottom: 4rem; /* Space for bottom nav */
@@ -85,8 +88,13 @@ html, body {
 }
 
 .home .bg {
+    width: 100%;
     height: 100vh;
     object-fit: cover;
+}
+
+.thr .home .bg {
+    object-position: right;
 }
 
 .content-item {
@@ -117,6 +125,14 @@ html, body {
     height: auto;
     aspect-ratio: 7317 / 8718;
     z-index: 2;
+}
+
+/* Center content images (event flyers stay in their scrolling row) */
+.content-item img:not(.event-flyer) {
+    display: block;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 hr.content-divider {

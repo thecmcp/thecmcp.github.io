@@ -21,9 +21,11 @@ html, body {
     align-items: center;
     justify-content: space-between;
     padding: 1rem 2rem;
-    /* gap: 1rem; */
+    flex-wrap: wrap;
+    gap: 1rem;
     z-index: 100;
     position: absolute;
+    background: rgba(255, 255, 255, 0.8);
 }
 
 .nav-top .nav-item {
@@ -43,7 +45,7 @@ html, body {
     text-decoration: none;
     text-transform: uppercase;
     color: rgb(0, 0, 0);
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 1.6vw, 1.5rem);
 }
 /* side nav */
 .nav-side {
@@ -56,15 +58,17 @@ html, body {
     transform: translateX(-100%);
     background: #ffffff;
     border-right: 2px dashed gray;
-    gap: calc(100vh - 20rem);
     z-index: 100;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem 0;
+    box-sizing: border-box;
+    overflow-y: auto;
 }
 
 .top-items {
     position: relative;
-    top: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: left;
@@ -95,6 +99,17 @@ html, body {
     text-decoration: underline;
 }
 
+.nav-side .nav-logo {
+    padding: 0;
+}
+
+.nav-side .nav-logo img {
+    display: block;
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+}
+
 /* end nav */
 
 .orbiting-logo {
@@ -110,11 +125,13 @@ html, body {
     z-index: 1000;
 }
 
+/* --orbit-shrink-top is set by scrollEffects.js to the middle of the gap
+   between the side nav's top and bottom items */
 .orbiting-logo.shrink {
     position: fixed;
-    top: 50%;
-    left: 0%;
-    transform: translate(0, -50%) scale(0.5);
+    top: var(--orbit-shrink-top, 50%);
+    left: calc(var(--nav-side-width) / 2 - 1rem);
+    transform: translate(-50%, -50%) scale(0.5);
 }
 
 .content {
