@@ -116,7 +116,11 @@ input {
 }
 
 #flipbook {
-    height: 90%;
+    /* A page is 90% of the container's height, or narrower on small screens
+       so a whole page always fits across */
+    --page-width: min(90cqh * 612 / 792, 100cqw - 2rem);
+
+    width: var(--page-width);
     aspect-ratio: 612/792;
     position: relative;
     transition-duration: 1s;
@@ -125,7 +129,7 @@ input {
     /* Half a page of room on each side so the open spread can be scrolled to,
        plus a little padding */
     flex-shrink: 0;
-    margin-inline: calc(90cqh * 306 / 792 + 1rem);
+    margin-inline: calc(var(--page-width) / 2 + 1rem);
 }
 
 .front_cover,
@@ -168,6 +172,9 @@ input {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* The site's mobile stylesheet pads .content, which would crop the page
+       images */
+    padding: 0;
 }
 
 .front_page {
