@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls \"/Applications/Google Chrome.app/Contents/MacOS/\" 2>/dev/null; which python3 npx)",
+      "Read(//Applications/Google Chrome.app/Contents/MacOS/**)",
+      "Bash(pkill -f \"http.server 8765\")",
+      "Bash(ipconfig getifaddr *)",
+      "Bash(sips -g pixelWidth -g pixelHeight 0.webp 20.webp)"
+    ]
+  }
+}
