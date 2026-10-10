@@ -319,3 +319,7 @@ hr.content-divider {
 .event-flyer:last-child {
     margin-right: 50vw;
 }
+
+.reading-list {
+    padding-left: 2rem;
+}
